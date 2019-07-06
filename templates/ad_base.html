@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="ad.size" content="width={{data.width}},height={{data.height}}">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script>
+      var clickTag = "https://www.google.com";
+    </script>
+  </head>
+    
+    
+    <body>
+        <div id="ad">
+            {{ data.width }}
+            x
+            {{ data.height }}
+            <br>
+            <br>
+            {% if True %}
+                base text dd
+            {% endif %}
+        </div>
+    </body>
+    
+</html>

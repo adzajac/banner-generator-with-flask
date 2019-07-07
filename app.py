@@ -15,15 +15,11 @@ env = Environment(
 
 @app.route('/')
 def index():
+    if request.args:
+        data = {
+            'width':request.args.get('width', 300, type=str),
+            'height':request.args.get('height', 250, type=str)
+        }
+        env.get_template('ad_base.html').stream(data=data).dump(OUTPUT_DIR+data["width"] + "x" + data["height"] + ".html")
     return render_template('index.html')
 
-
-@app.route('/generate')
-def generate():
-    data = {
-        'width':request.args.get('width', 300, type=str),
-        'height':request.args.get('height', 250, type=str)
-    }
-    env.get_template('ad_base.html').stream(data=data).dump(OUTPUT_DIR+data["width"]+"x"+data["height"]+".html")
-#    Template(filename='/ad_base.html').stream(date='ab').dump('hello.html')
-    return redirect(url_for('index'))

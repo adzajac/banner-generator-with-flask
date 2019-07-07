@@ -9,19 +9,22 @@
     <script>
       var clickTag = "https://www.google.com";
     </script>
+      
+    <style>
+        #ad {
+            position:absolute;
+            width: {{data.width}}px;
+            height: {{data.height}}px;
+            background-color:green;
+        }  
+      
+    </style>
   </head>
     
     
     <body>
         <div id="ad">
-            {{ data.width }}
-            x
-            {{ data.height }}
-            <br>
-            <br>
-            {% if True %}
-                base text dd
-            {% endif %}
+            
         </div>
     </body>
     

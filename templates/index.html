@@ -3,6 +3,12 @@
 <html>
 <head>
     <title>banner generator</title>
+<!--
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <script type="text/javascript" src="static/color-polyfill.js"></script>
+-->
 </head>
 <body>
     
@@ -13,10 +19,32 @@
 <!--    <p><a href="{{url_for('index', width=300, height=250)}}">GENERATE 300x250</a></p>-->
     
     <form action="" novalidate>
-        width: <br><input type="number" name="width"><br>
-        height: <br><input type="number" name="height"><br>
-        <br>
-        <input type="submit" value="Generate">
+        <p>
+            width: <br><input type="number" name="width" value="300">
+        </p>
+        <p>
+            height: <br><input type="number" name="height" value="250">
+        </p>
+        <p>
+            background color:<br>
+            <input type="color" name="bkg_color">
+        </p>
+        <p>
+            <input type="checkbox" name="border" unchecked> add border
+        </p>
+<!--
+        <p>
+            ad serving: <br>
+            <select name="ad_serving">
+                <option value="none">None</option>
+                <option value="doubleclick">DoubleClick</option>
+                <option value="flashtalking">Flashtalking</option>
+            </select>
+        </p>
+-->
+        <p>
+            <input type="submit" value="GENERATE">
+        </p>
     </form>
     
 </body>

@@ -1,0 +1,14 @@
+#ad {
+    position:absolute;
+    top:0px; left:0px;
+    display:block;
+    width: {{data.width}}px;
+    height: {{data.height}}px;
+    background-color:{{data.bkg_color}};
+
+    {% if data.border=='on' %}
+    border: 1px solid black;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    {% endif %}
+}

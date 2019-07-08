@@ -6,27 +6,12 @@
     <meta name="ad.size" content="width={{data.width}},height={{data.height}}">
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    {% if data.clicktag %}
     <script>
       var clickTag = "https://www.google.com";
     </script>
-      
-    <style>
-        #ad {
-            position:absolute;
-            top:0px; left:0px;
-            display:block;
-            width: {{data.width}}px;
-            height: {{data.height}}px;
-            background-color:{{data.bkg_color}};
-            {% if data.border=='on' %}
-                  border: 1px solid black;
-                  -webkit-box-sizing: border-box;
-                  box-sizing: border-box;
-            {% endif %}
-        }
-
-      
-    </style>
+    {% endif %}
+    
   </head>
     
     
@@ -34,6 +19,20 @@
         <div id="ad">
             
         </div>
+        
+        
+        {% if data.tweenmax=='on' %}
+        <script type="text/javascript" src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script> 
+        {% endif %}
+        
+        {% if data.ad_serving == 'doubleclick' %}
+        <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+        {% elif data.ad_serving == 'flashtalking' %}
+        {% elif data.ad_serving == 'sizmek' %}
+        {% endif %}
+        
+        <script type="text/javascript" src="main.js"></script>
     </body>
     
 </html>
+

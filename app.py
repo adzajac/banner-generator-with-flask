@@ -18,7 +18,10 @@ def index():
     if request.args:
         data = {
             'width':request.args.get('width', 300, type=str),
-            'height':request.args.get('height', 250, type=str)
+            'height':request.args.get('height', 250, type=str),
+            'bkg_color':request.args.get('bkg_color', '#ffffff', type=str),
+            'border':request.args.get('border', 'off', type=str),
+            'ad_server':request.args.get('ad_server', 'None', type=str)
         }
         env.get_template('ad_base.html').stream(data=data).dump(OUTPUT_DIR+data["width"] + "x" + data["height"] + ".html")
     return render_template('index.html')

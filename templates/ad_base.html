@@ -3,36 +3,35 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="ad.size" content="width={{data.width}},height={{data.height}}">
+    <meta name="ad.size" content="width={{ad_params.width}},height={{ad_params.height}}">
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    {% if data.clicktag %}
+    {% if ad_params.clicktag %}
     <script>
       var clickTag = "https://www.google.com";
     </script>
     {% endif %}
-    
   </head>
-    
-    
     <body>
-        <div id="ad">
-            
-        </div>
+        <div id="ad">    
+            <!-- write your ad html code here -->
+            {% if ad_params.sample_animation=='on' %}
+            <div id="text">first frame</div>
+            <div id="product"></div>
+            <div id="logo">end frame</div>  
+            {% endif %}
+        </div> 
         
-        
-        {% if data.tweenmax=='on' %}
+        {% if ad_params.tweenmax=='on' %}
         <script type="text/javascript" src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script> 
         {% endif %}
         
-        {% if data.ad_serving == 'doubleclick' %}
+        {% if ad_params.ad_serving == 'doubleclick' %}
         <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
-        {% elif data.ad_serving == 'flashtalking' %}
-        {% elif data.ad_serving == 'sizmek' %}
+        {% elif ad_params.ad_serving == 'flashtalking' %}
+        {% elif ad_params.ad_serving == 'sizmek' %}
         {% endif %}
-        
         <script type="text/javascript" src="main.js"></script>
     </body>
-    
 </html>
 

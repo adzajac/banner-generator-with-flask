@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block css %}
+    <style>
+
+        .success{
+            background-color: green;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+{% endblock %}
+    
+    
+{% block content %}
+                
+    <div class="mt-5 mb-5 pt-3 pb-2 text-center success"><h3>SUCCESS!</h3></div>
+    <div class="mt-5 mb-5 pt-3 pb-2 text-center ">
+        <a href="{{url_for('index')}}" class="btn btn-primary">Generate another one!</a>
+    </div>
+
+    
+{% endblock %}
+           
+
+{% block js %}
+    
+{% endblock %}
+

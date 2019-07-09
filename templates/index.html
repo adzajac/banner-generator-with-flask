@@ -1,36 +1,77 @@
-<!doctyle html>
 
-<html>
-<head>
-    <title>banner generator</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
+{% block css %}
+    <style>
+        .group-legend {
+            color:gray;
+            font-size:1.1rem;
+        }
+        .form-group {
+            border-top: 1px dotted gray;
+        }
+        .form-group.last {
+            border-bottom: 1px dotted gray;
+        }    
+    </style>
+{% endblock %}
     
-    <h1>Banner Generator</h1>
-    <h2>Select parameters and click generate.</h2>
     
+{% block content %}
+                <form action="" novalidate>
 
-    
-    <form action="" novalidate>
-        <p><input type="number" name="width" value="300" width="100"> width</p>
-        <p><input type="number" name="height" value="250" size="100"> height</p>
-        <p><input type="color" name="bkg_color" value="#888888"> background color</p>
-        <p><input type="checkbox" name="border" unchecked> add border</p>
-        <p><input type="checkbox" name="clicktag" checked> add clicktag var</p>
-        <p><input type="checkbox" name="tweenmax" unchecked> include TweenMax library</p>
-        <p>
-            <select name="ad_serving">
-                <option value="none">None</option>
-                <option value="doubleclick">DoubleClick</option>
-                <option value="flashtalking">Flashtalking</option>
-                <option value="sizmek">Sizmek</option>
-            </select> ad serving
-        </p>
-        <p><input type="submit" value="GENERATE"></p>
-    </form>
-    
-</body>
+                    <div class="form-group mb-4 mt-4 pt-3">
+                        <p class="group-legend">Dimensions</p>
+                        <input type="number" name="width" value="300" style="width:100px"> width<br>
+                        <input type="number" name="height" value="250" style="width:100px"> height
+                    </div>
+                    <div class="form-group mb-4 pt-3">
+                        <p class="group-legend">Appearance</p>
+                        <p><input type="color" name="bkg_color" value="#f2f2f2"> background color</p>
+                        <input id="border_checkbox" type="checkbox" name="border" checked> add border
+                        <span id="border_color"><input type="color" name="border_color" value="#525252"> border color</span>
+                    </div>
 
+                    <div class="form-group mb-4 pt-3">
+                        <p class="group-legend">Animations</p>
+                        <p><input id="tweenmax_option" type="checkbox" name="tweenmax" checked> include TweenMax library</p>
+                        <p id="sample_animation"><input type="checkbox" name="sample_animation" checked> include sample animation</p>
+                    </div>
+                    <div class="form-group last mb-4 pb-3 pt-3">
+                        <p class="group-legend">Miscellaneous</p>
+                        <p><input type="checkbox" name="clicktag" checked> add clicktag var</p>
+                        <p>
+                        <select name="ad_serving">
+                            <option value="none">None</option>
+                            <option value="doubleclick">DoubleClick</option>
+                            <option value="flashtalking">Flashtalking</option>
+                            <option value="sizmek">Sizmek</option>
+                        </select> ad serving
+                        </p>
+                    </div>
+                    <div class="text-center mb-5 pt-2"><input type="submit" class="btn btn-lg btn-danger text-center" value="GENERATE"></div>
+                </form>
+{% endblock %}
+           
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $("#border_checkbox").click(function() {
+                if($(this).is(":checked")) {
+                    $("#border_color").show(200);
+                } else {
+                    $("#border_color").hide(200);
+                }
+            });
+            $("#tweenmax_option").click(function() {
+                if($(this).is(":checked")) {
+                    $("#sample_animation").show(200);
+                } else {
+                    $("#sample_animation").hide(200);
+                }
+            });
+            
+        });
+    </script>
+{% endblock %}
 
-</html>

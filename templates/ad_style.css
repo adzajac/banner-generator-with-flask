@@ -2,13 +2,43 @@
     position:absolute;
     top:0px; left:0px;
     display:block;
-    width: {{data.width}}px;
-    height: {{data.height}}px;
-    background-color:{{data.bkg_color}};
-
-    {% if data.border=='on' %}
-    border: 1px solid black;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    width: {{ad_params.width}}px;
+    height: {{ad_params.height}}px;
+    background-color:{{ad_params.bkg_color}};
+    {% if ad_params.border=='on' %}
+    border: 1px solid {{ad_params.border_color}};
     {% endif %}
+    overflow:hidden;
 }
+
+
+{% if ad_params.sample_animation=='on' %}
+#text, #logo {
+    font-size:24px;
+    font-family:monospace;
+    width:{{ad_params.width}}px;
+    position:absolute;
+    top:20px;
+    left:0px;
+    text-align:center;
+    opacity:0;
+    
+}
+#product {
+    width:100px;
+    height:100px;
+    opacity:0;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:coral;
+    border:1px gray solid;
+    max-height:{{ad_params.height-8}}px;
+    top:{{ad_params.height/2 - 50}}px;
+    left:{{ad_params.width/2 - 50}}px;
+}
+#logo {
+    top:0px;
+    left:0px;
+}
+{% endif %}

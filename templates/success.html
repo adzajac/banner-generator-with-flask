@@ -15,9 +15,12 @@
     
 {% block content %}
                 
-    <div class="mt-5 mb-5 pt-3 pb-2 text-center success"><h3>SUCCESS!</h3></div>
-    <div class="mt-5 mb-5 pt-3 pb-2 text-center ">
-        <a href="{{url_for('index')}}" class="btn btn-primary">Generate another one!</a>
+    <div class="mt-5 mb-1 pt-3 pb-2 text-center success"><h3>SUCCESS!</h3></div>
+    <div class="mt-1 mb-5 pt-3 pb-2 text-center ">
+        <a href="{{url_for('download',filename=filename)}}" class="btn btn-primary">Download your ad</a>
+    </div>
+    <div class="mt-5 mb-2 pt-3 pb-2 text-left ">
+        <a href="{{url_for('index')}}">Generate another one!</a>
     </div>
 
     

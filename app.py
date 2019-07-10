@@ -14,6 +14,12 @@ env = Environment(
 
 @app.route('/')
 def index():
+    
+    return render_template('index.html')
+
+
+@app.route('/generate', methods=['GET','POST'])
+def generate():
     if request.args:
         ad_params = {
             'width':request.args.get('width', 300, type=int),
@@ -35,7 +41,7 @@ def index():
         env.get_template('ad_base.html').stream(ad_params=ad_params).dump(dir_name + "/index.html")
         env.get_template('ad_main.js').stream(ad_params=ad_params).dump(dir_name + "/main.js")
         env.get_template('ad_style.css').stream(ad_params=ad_params).dump(dir_name + "/style.css")
+        
         return render_template('success.html')
-    return render_template('index.html')
-
-
+    else:
+        return redirect(url_for('index'))

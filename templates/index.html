@@ -18,7 +18,7 @@
     
     
 {% block content %}
-                <form action="" novalidate>
+                <form action="{{url_for('generate')}}" method="GET" novalidate>
 
                     <div class="form-group mb-4 mt-4 pt-3">
                         <p class="group-legend">Dimensions</p>
